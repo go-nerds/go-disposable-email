@@ -16,9 +16,11 @@ A disposable email is a unique email address that is temporary. It expires after
    ```bash
    go build
    ```
-3. Run the executable file:
+   - <sub> or use `go run .` to compile and execute the code </sub>
+3. Run the executable file: 
    ```bash
-    go run .
+    `./<executable_file_name>` // Linux || Mac OS
+    `.\<executable_file_name>.exe` // Windows
     Use the arrow keys to navigate: ↓ ↑ → ←
     ? Select Domain:
     > 1secmail.com
