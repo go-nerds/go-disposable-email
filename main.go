@@ -68,7 +68,7 @@ func main() {
 
 	red := color.FgRed.Render
 	color.Cyan.Println("Your Temporary Email is:", red(email))
-	color.Cyan.Println("Mailbox content is refreshed automatically every 7 seconds.")
+	color.Cyan.Println("Mailbox content is refreshed automatically every 5 seconds.")
 	color.Cyan.Println("All Emails are saved in", string(selectedDomain), "folder and", generatedName, "file")
 
 	fmt.Println(red("--------------------------------------------------------"))
