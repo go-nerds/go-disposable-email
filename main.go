@@ -38,6 +38,7 @@ func main() {
 	prompt := promptui.Select{
 		Label: "Select Domain",
 		Items: availableDomains,
+		Size:  5,
 	}
 
 	_, selectedDomain, err := prompt.Run()
