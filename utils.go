@@ -115,7 +115,7 @@ func saveMailsToFile(name string, domain string) {
 
 					defer out.Close()
 
-					_, err = io.Copy(out, fileResponse.Body)
+					io.Copy(out, fileResponse.Body)
 
 					color.Success.Println(value.Filename, "downloaded successfully!")
 					time.Sleep(1 * time.Second)
