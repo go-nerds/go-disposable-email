@@ -1,5 +1,8 @@
 # go-disposable-email
 
+![GO disposable Email by aavision](https://github.com/go-nerds/go-disposable-email/blob/main/logo.png?raw=true)
+
+
 This small tool is to generate a disposable temporary email using different domains quickly in 1 second, receive your mail and attachments, and save them to a folder!
 
 ## what is disposable emails?
