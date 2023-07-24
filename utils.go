@@ -39,7 +39,7 @@ func toggleMap(response []CheckMail) {
 }
 
 func handleInterrupt(name string, domainOnly string) {
-	channel := make(chan os.Signal)
+	channel := make(chan os.Signal, 1)
 	signal.Notify(channel, os.Interrupt, syscall.SIGTERM)
 	go func() {
 		<-channel
