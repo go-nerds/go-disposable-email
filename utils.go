@@ -89,11 +89,11 @@ func saveMailsToFile(name string, domain string) {
 
 				f, err := os.OpenFile(path, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 
-				defer f.Close()
-
 				if err != nil {
 					log.Fatal(err)
 				}
+
+				defer f.Close()
 
 				if _, err := f.WriteString(string(receivedMail)); err != nil {
 					log.Println(err)
