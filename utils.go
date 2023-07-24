@@ -69,7 +69,7 @@ func clearConsole() {
 }
 
 func saveMailsToFile(name string, domain string) {
-	for k, _ := range ids {
+	for k := range ids {
 		if ids[k] == 0 {
 			s := fmt.Sprintf("https://www.1secmail.com/api/v1/?action=readMessage&login=%v&domain=%v&id=%v", name, domain, k)
 			resp, _ := http.Get(s)
