@@ -99,30 +99,32 @@ func saveMailsToFile(name string, domain string) {
 					log.Println(err)
 				}
 
-				for _, value := range receivedEmail.Attachments {
-					s := fmt.Sprintf("https://www.1secmail.com/api/v1/?action=download&login=%v&domain=%v&id=%v&file=%v", name, domain, k, value.Filename)
-					fileResponse, _ := http.Get(s)
-					fmt.Println(value.Filename)
-					fmt.Println(s)
-
-					defer fileResponse.Body.Close()
-
-					out, err := os.Create(domain + "/" + value.Filename)
-
-					if err != nil {
-						return
-					}
-
-					defer out.Close()
-
-					io.Copy(out, fileResponse.Body)
-
-					color.Success.Println(value.Filename, "downloaded successfully!")
-					time.Sleep(1 * time.Second)
-				}
+				saveDocuments(receivedEmail, name, domain, k)
 
 				ids[k] = 1
 			}
 		}
+	}
+}
+
+func saveDocuments(receivedEmail CheckMail, name string, domain string, index int) {
+	for _, value := range receivedEmail.Attachments {
+		s := fmt.Sprintf("https://www.1secmail.com/api/v1/?action=download&login=%v&domain=%v&id=%v&file=%v", name, domain, index, value.Filename)
+		fileResponse, _ := http.Get(s)
+
+		defer fileResponse.Body.Close()
+
+		out, err := os.Create(domain + "/" + value.Filename)
+
+		if err != nil {
+			return
+		}
+
+		defer out.Close()
+
+		io.Copy(out, fileResponse.Body)
+
+		color.Success.Println(value.Filename, "downloaded successfully!")
+		time.Sleep(1 * time.Second)
 	}
 }
