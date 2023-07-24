@@ -22,7 +22,7 @@ func getAvailableDomains() ([]string, error) {
 	responseData, err := io.ReadAll(response.Body)
 
 	if err != nil {
-		return availableDomains, errors.New("error in parsing the response!")
+		return availableDomains, errors.New("error in parsing the response")
 	}
 
 	_ = json.Unmarshal(responseData, &availableDomains)
@@ -39,7 +39,7 @@ func createEmail(name string, domain string) (string, error) {
 	}
 
 	if resp.StatusCode != 200 {
-		return "", errors.New("Email was not created!")
+		return "", errors.New("email was not created")
 	}
 
 	email := name + "@" + domain
