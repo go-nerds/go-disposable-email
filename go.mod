@@ -10,7 +10,6 @@ require (
 	github.com/containerd/console v1.0.3 // indirect
 	github.com/gookit/color v1.5.4 // indirect
 	github.com/lithammer/fuzzysearch v1.1.8 // indirect
-	github.com/manifoldco/promptui v0.9.0 // indirect
 	github.com/mattn/go-runewidth v0.0.14 // indirect
 	github.com/pterm/pterm v0.12.63 // indirect
 	github.com/rivo/uniseg v0.4.4 // indirect

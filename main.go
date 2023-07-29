@@ -7,7 +7,6 @@ import (
 	"time"
 
 	"github.com/gookit/color"
-	"github.com/manifoldco/promptui"
 	"github.com/pterm/pterm"
 )
 
@@ -46,18 +45,7 @@ func main() {
 		return
 	}
 
-	prompt := promptui.Select{
-		Label: "Select Domain",
-		Items: availableDomains,
-		Size:  5,
-	}
-
-	_, selectedDomain, err := prompt.Run()
-
-	if err != nil {
-		fmt.Printf("Prompt failed %v\n", err)
-		return
-	}
+	selectedDomain, _ := pterm.DefaultInteractiveSelect.WithOptions(availableDomains).Show()
 
 	generatedName := generateRandomString(10)
 	email, err := createEmail(generatedName, string(selectedDomain))
