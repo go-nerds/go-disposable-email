@@ -45,7 +45,7 @@ func main() {
 		return
 	}
 
-	selectedDomain, _ := pterm.DefaultInteractiveSelect.WithOptions(availableDomains).Show()
+	selectedDomain, _ := pterm.DefaultInteractiveSelect.WithDefaultText("Please select a domain").WithOptions(availableDomains).Show()
 
 	generatedName := generateRandomString(10)
 	email, err := createEmail(generatedName, string(selectedDomain))
