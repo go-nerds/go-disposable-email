@@ -8,6 +8,7 @@ import (
 
 	"github.com/gookit/color"
 	"github.com/manifoldco/promptui"
+	"github.com/pterm/pterm"
 )
 
 type CheckMail struct {
@@ -27,6 +28,16 @@ type CheckMail struct {
 var mailsResponse []CheckMail
 
 func main() {
+
+	red := color.FgRed.Render
+	info := color.FgLightCyan.Render
+
+	pterm.DefaultBox.
+		WithRightPadding(10).
+		WithLeftPadding(10).
+		WithTopPadding(2).
+		WithBottomPadding(2).
+		Println(info("Go Disposable email created by AAVision"))
 
 	availableDomains, err := getAvailableDomains()
 
@@ -66,7 +77,6 @@ func main() {
 
 	clearConsole()
 
-	red := color.FgRed.Render
 	color.Cyan.Println("Your Temporary Email is:", red(email))
 	color.Cyan.Println("Mailbox content is refreshed automatically every 5 seconds.")
 	color.Cyan.Println("All Emails are saved in", string(selectedDomain), "folder and", generatedName, "file")
